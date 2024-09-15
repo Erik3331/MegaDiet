@@ -160,3 +160,36 @@ function calcMacros() {
     resultadoMacros2.style.color = 'white';
     resultadoMacros3.style.color = 'white';
 }
+
+function calcGramas() {
+    // Obtendo os valores dos inputs e convertendo para números
+    var resultadoMacros1 = parseFloat(document.getElementById("resultado-macros1").textContent.match(/[\d.]+/g));
+    var resultadoMacros2 = parseFloat(document.getElementById("resultado-macros2").textContent.match(/[\d.]+/g));
+    var resultadoMacros3 = parseFloat(document.getElementById("resultado-macros3").textContent.match(/[\d.]+/g));
+
+    // Verificando se algum valor é NaN
+    if (isNaN(resultadoMacros1) || isNaN(resultadoMacros2) || isNaN(resultadoMacros3)) {
+        var resultadoGramas1 = document.getElementById('resultado-gramas1');
+        resultadoGramas1.textContent = "Calcule os dados anteriores primeiro.";
+        resultadoGramas1.style.color = "red";
+        return;
+    }
+    
+    // Calculando as gramas
+    var carbogm = resultadoMacros1 / 4;
+    var protgm = resultadoMacros2 / 4;
+    var lipgm = resultadoMacros3 / 9;
+
+    // Exibindo os resultados
+    var resultadoGramas1 = document.getElementById("resultado-gramas1");
+    var resultadoGramas2 = document.getElementById("resultado-gramas2");
+    var resultadoGramas3 = document.getElementById("resultado-gramas3");
+
+    resultadoGramas1.textContent = 'Carboidratos: ' + carbogm.toFixed(2) + ' g';
+    resultadoGramas2.textContent = 'Proteínas: ' + protgm.toFixed(2) + ' g';
+    resultadoGramas3.textContent = 'Lipídios: ' + lipgm.toFixed(2) + ' g';
+    
+    resultadoGramas1.style.color = 'white';
+    resultadoGramas2.style.color = 'white';
+    resultadoGramas3.style.color = 'white';
+}

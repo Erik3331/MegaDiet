@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="imgs/megadiet-logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,22 +15,26 @@
     <header>
         <img src="imgs/megadiet-logo.png" alt="Logo MegaDiet">
         <h1>MEGADIET</h1>
-        <div class="menu-container">
-            <div class="hamburger" id="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <nav class="menu" id="menu">
-                <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i><span class="menu-text">Home</span></a></li>
-                    <li><a href="sobre.html"><i class="fas fa-user"></i><span class="menu-text">Sobre</span></a></li>
-                    <li><a href="contatos.html"><i class="fas fa-envelope"></i><span class="menu-text">Contato</span></a></li>
-                </ul>
-            </nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <li><a href="contatos.html"><i class="fas fa-user"></i></a></li>
+                <li><a href="sobre.html"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </nav>
     </header>
+    
+    
+    <h1 class="geral-title">Ferramentas e Cálculos para Planejamento Nutricional</h1>
 
+    <section>
+
+       
     <h1 class="title">Calculadora TMB</h1>
 
     <main>
@@ -67,9 +74,9 @@
             <button onclick="calcTmb()">Calcular TMB</button>
             <p id="resultado"></p>
         </div>
-
+        </main>
         <h1 class="title">Gasto Calórico Diário</h1>
-
+        <main>
         <div class="card">
             <ul>
                 <li><h2>Adição de atividades físicas</h2></li>
@@ -94,9 +101,11 @@
             <button onclick="gastoCal()">Calcular Gasto Calórico</button>
             <p id="resultado-gasto"></p>
         </div>
+        </main>
 
         <h1 class="title">Calculadora de Dieta</h1>
 
+        <main>
         <div class="card">
             <ul>
                 <li><h2>Definição do objetivo</h2></li>
@@ -117,8 +126,11 @@
             <p id="resultado-dieta"></p>
         </div>
 
+        </main>
+
         <h1 class="title">Macronutrientes</h1>
 
+        <main>
         <div class="card">
             <ul>
                 <li><h2>Distribuição de Macronutrientes</h2></li>
@@ -141,8 +153,49 @@
             <p id="resultado-macros2"></p>
             <p id="resultado-macros3"></p>
         </div>
-    </main>
 
+        <div class="card">
+            <ul>
+                <li><h2>Calcular gramas dos macronutrientes</h2></li>
+            </ul>
+
+            <p>Cada macronutriente fornece uma quantidade específica de calorias por grama:</p>
+
+            <ul>
+                <li><p><strong>Carboidratos: </strong>4 calorias por grama.</p></li>
+                <li><p><strong>Proteínas: </strong>4 calorias por grama.</p></li>
+                <li><p><strong>Lipídios: </strong>9 calorias por grama.</p></li>
+            </ul>
+        </div>
+
+        <div class="card2">
+            <h2>Cálculo:</h2>
+            <button onclick="calcGramas()">Calcular Gramas</button>
+            <p id="resultado-gramas1"></p>
+            <p id="resultado-gramas2"></p>
+            <p id="resultado-gramas3"></p>
+        </div>
+
+        </main>
+
+        <h1 class="title">Observações</h1>
+
+        <main>
+            <div class="card">
+                <ul>
+                    <li><h2>Pontos importantes</h2></li>
+                </ul>
+                <p>As ferramentas de cálculo de TMB (Taxa Metabólica Basal), gasto calórico diário e necessidades de macronutrientes fornecidas por este site são estimativas baseadas em fórmulas padrão e dados gerais. Embora sejam úteis para obter uma ideia aproximada de suas necessidades calóricas e nutricionais, elas não substituem o aconselhamento profissional.
+
+                    Para obter recomendações personalizadas e precisas, adaptadas às suas necessidades individuais e condições de saúde específicas, recomendamos fortemente que você consulte um nutricionista ou profissional de saúde qualificado.
+                    
+                    A nutrição é um campo complexo e multifacetado, e o acompanhamento com um especialista pode ajudar a garantir que suas metas de saúde e bem-estar sejam alcançadas de maneira segura e eficaz.</p>
+            </div>
+        </main>
+    </section>
+
+    
+    
     <footer>
         <h2>© MEGADIET COMPANY LTDA; 2024</h2>
     </footer>
