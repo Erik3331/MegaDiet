@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaDiet</title>
+</head>
+<body>
+    <header>
+        <img src="imgs/megadiet-logo.png" alt="Logo MegaDiet">
+        <h1>MEGADIET</h1>
+        <div class="menu-container">
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <nav class="menu" id="menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i><span class="menu-text">Home</span></a></li>
+                    <li><a href="sobre.html"><i class="fas fa-user"></i><span class="menu-text">Sobre</span></a></li>
+                    <li><a href="contatos.html"><i class="fas fa-envelope"></i><span class="menu-text">Contato</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h1 class="title">Calculadora TMB</h1>
+
+    <main>
+        <div class="card">
+            <ul>
+                <li><h2>O que é TMB?</h2></li>
+            </ul>
+            <p>
+                A Taxa Metabólica Basal (TMB) representa a quantidade de energia que o corpo necessita para realizar funções vitais essenciais, como respiração, circulação sanguínea e regulação da temperatura corporal, quando está em estado de repouso absoluto. Essa métrica é crucial no campo da nutrição e no planejamento dietético, pois permite calcular as necessidades calóricas diárias individuais. A TMB pode ser influenciada por diversos fatores, incluindo idade, sexo, peso, altura e composição corporal, oferecendo uma visão personalizada das exigências energéticas do organismo.
+            </p>
+
+            <ul>
+                <li><h2>Como calcular a TMB?</h2></li>
+            </ul>
+            <p>
+                A fórmula de Harris-Benedict é amplamente utilizada para calcular a TMB. Ela considera diferentes fatores como peso, altura, idade e sexo. As fórmulas são:
+            </p>
+            <p><strong>Para Homens:</strong></p>
+            <p><code>TMB = 88.362 + (13.397 × peso em kg) + (4.799 × altura em cm) - (5.677 × idade em anos)</code></p>
+            <p><strong>Para Mulheres:</strong></p>
+            <p><code>TMB = 447.593 + (9.247 × peso em kg) + (3.098 × altura em cm) - (4.330 × idade em anos)</code></p>
+            <p>
+                Insira seus dados abaixo para calcular a quantidade de calorias que seu corpo necessita para manter as funções vitais enquanto está em repouso.
+            </p>
+        </div>
+
+        <div class="card2">
+            <h2>Cálculo:</h2>
+            <input id="peso" type="number" placeholder="Peso (em kg)" min="0" step="0.1">
+            <input id="altura" type="number" placeholder="Altura (em cm)" min="0" step="0.1">
+            <input id="idade" type="number" placeholder="Idade (em anos)" min="0">
+            <h3>Gênero:</h3>
+            <div class="elements">
+                <label><input type="radio" name="genero" value="masculino"> Masculino</label>
+                <label><input type="radio" name="genero" value="feminino"> Feminino</label>
+            </div>
+            <button onclick="calcTmb()">Calcular TMB</button>
+            <p id="resultado"></p>
+        </div>
+
+        <h1 class="title">Gasto Calórico Diário</h1>
+
+        <div class="card">
+            <ul>
+                <li><h2>Adição de atividades físicas</h2></li>
+            </ul>
+            <p>Adicionar o Gasto Energético com Atividade Física: Multiplique sua TMB por um fator de atividade, que varia conforme seu nível de atividade física:</p>
+            <p><strong>Sedentário (pouca ou nenhuma atividade): </strong><br>TMB × 1.2</p>
+            <p><strong>Levemente ativo (atividade leve/sociais):</strong><br> TMB × 1.375</p>
+            <p><strong>Moderadamente ativo (atividade moderada/exercício):</strong><br> TMB × 1.55</p>
+            <p><strong>Muito ativo (atividade intensa/exercício):</strong><br> TMB × 1.725</p>
+            <p><strong>Extremamente ativo (atividade física muito intensa ou trabalho físico pesado):</strong><br> TMB × 1.9</p>
+        </div>
+
+        <div class="card2">
+            <h2>Cálculo:</h2>
+            <div class="elements">
+                <label><input type="radio" name="atividade" value="sedentario"> Sedentário</label>
+                <label><input type="radio" name="atividade" value="leve"> Leve</label>
+                <label><input type="radio" name="atividade" value="moderado"> Moderado</label>
+                <label><input type="radio" name="atividade" value="intenso"> Intenso</label>
+                <label><input type="radio" name="atividade" value="extremo"> Extremo</label>
+            </div>
+            <button onclick="gastoCal()">Calcular Gasto Calórico</button>
+            <p id="resultado-gasto"></p>
+        </div>
+
+        <h1 class="title">Calculadora de Dieta</h1>
+
+        <div class="card">
+            <ul>
+                <li><h2>Definição do objetivo</h2></li>
+            </ul>
+            <p><strong>Emagrecimento:</strong> Para perder peso, a dieta deve criar um déficit calórico, consumindo menos calorias do que você gasta. Inclua alimentos que promovam saciedade, como vegetais e proteínas magras. Neste caso, será subtraído 600 calorias ao seu gasto calórico diário.</p>
+            <p><strong>Ganho de massa muscular:</strong> Para ganhar massa muscular, é necessário um superávit calórico, ou seja, ingerir mais calorias do que se queima. Foque em uma dieta rica em proteínas, carboidratos para energia e gorduras saudáveis para funções corporais essenciais. Neste caso, será adicionado 600 calorias ao seu gasto calórico diário.</p>
+            <p><strong>Manutenção de peso:</strong> Para manter o peso atual, a dieta deve equilibrar a ingestão de calorias com o gasto diário. Inclua uma variedade de alimentos para garantir todos os nutrientes necessários para a saúde geral. Neste caso, seu gasto calórico diário será mantido.</p>
+        </div>
+
+        <div class="card2">
+            <h2>Cálculo:</h2>
+            <div class="elements"> 
+                <label><input type="radio" name="objetivo" value="emagrecer"> Emagrecer</label>
+                <label><input type="radio" name="objetivo" value="crescer"> Hipertrofiar</label>
+                <label><input type="radio" name="objetivo" value="manter"> Manter</label>
+            </div>
+            <button onclick="calcDieta()">Calcular Dieta</button>
+            <p id="resultado-dieta"></p>
+        </div>
+
+        <h1 class="title">Macronutrientes</h1>
+
+        <div class="card">
+            <ul>
+                <li><h2>Distribuição de Macronutrientes</h2></li>
+            </ul>
+            <p>Uma distribuição ideal de macronutrientes pode ser fundamental para atingir uma variedade de objetivos nutricionais, desde manutenção de peso e emagrecimento até ganho muscular e desempenho atlético. Uma configuração comum e equilibrada é a seguinte:</p>
+            <ul>
+                <li><h3>60% Carboidratos</h3></li>
+                <li><h3>25% Proteínas</h3></li>
+                <li><h3>15% Lipídios</h3></li>
+            </ul>
+            <p><strong>Carboidratos: </strong>Os carboidratos são a principal fonte de energia para o corpo. Eles são essenciais para fornecer glicose, que é utilizada pelas células, especialmente durante atividades físicas intensas e diárias. Além disso, carboidratos complexos oferecem fibras, que ajudam na digestão e na manutenção da saciedade.</p>
+            <p><strong>Proteínas: </strong>As proteínas são fundamentais para a construção e reparo dos tecidos corporais, incluindo músculos. Elas também são vitais para a produção de enzimas, hormônios e para o funcionamento geral do sistema imunológico.</p>
+            <p><strong>Lipídios: </strong>As gorduras são essenciais para a absorção de vitaminas lipossolúveis (A, D, E e K) e para a produção de hormônios. Elas também fornecem uma fonte concentrada de energia e são importantes para a saúde celular e o funcionamento do cérebro.</p>
+        </div>
+
+        <div class="card2">
+            <h2>Cálculo:</h2>
+            <button onclick="calcMacros()">Calcular Macros</button>
+            <p id="resultado-macros1"></p>
+            <p id="resultado-macros2"></p>
+            <p id="resultado-macros3"></p>
+        </div>
+    </main>
+
+    <footer>
+        <h2>© MEGADIET COMPANY LTDA; 2024</h2>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
